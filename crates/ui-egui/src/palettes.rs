@@ -9,6 +9,8 @@ use crate::CadApp;
 use crate::icons::{self, Icon};
 use crate::theme::Tokens;
 
+/// The Parts Library palette.
+pub mod parts_library;
 /// The hatch pattern picker.
 pub mod patterns;
 /// The QuickCalc palette.

@@ -2,6 +2,7 @@
 //! Block Editor.
 
 pub(crate) mod bedit;
+pub mod library;
 mod purge;
 
 use std::sync::Arc;

@@ -188,6 +188,9 @@ impl Default for UiState {
 pub struct Services {
     pub pick_open: Option<Box<dyn Fn() -> Option<String>>>,
     pub pick_save: Option<Box<dyn Fn(&str) -> Option<String>>>,
+    pub pick_folder: Option<Box<dyn Fn() -> Option<String>>>,
+    /// The per-user settings directory (`~/.config/cadcraft` or platform equivalent).
+    pub config_dir: Option<std::path::PathBuf>,
 }
 
 pub struct CadApp {
@@ -243,6 +246,8 @@ pub struct CadApp {
     pub hatch_dlg: Option<hatchdlg::HatchDlgState>,
     /// The Edit Block Definition dialog ([`bedit`]).
     pub bedit: bedit::State,
+    /// The Parts Library palette state (preview channel, tree cache).
+    pub parts_library: palettes::parts_library::PartsLibraryState,
 }
 
 impl CadApp {
@@ -281,6 +286,7 @@ impl CadApp {
             gpu_notice: None,
             hatch_dlg: None,
             bedit: bedit::State::default(),
+            parts_library: palettes::parts_library::PartsLibraryState::default(),
         }
     }
 

@@ -6,6 +6,7 @@ mod annotate;
 mod array;
 mod audit;
 pub(crate) mod blocks;
+pub use blocks::library;
 pub mod clipboard;
 pub mod constraints;
 mod draw;
